@@ -1,0 +1,137 @@
+---
+
+#
+# Definitions for Sharry docker container.
+#
+# This file is used as data source to generate README.md and unRAID template files
+# from Jinja2 templates.
+#
+
+app:
+  id: 28
+  name: sharry
+  friendly_name: Sharry
+  gui_type: web
+  base_os: alpine
+  gui_port: 9090
+  project:
+    description: |-
+      Sharry allows to share files with others in a simple way. It is a self-hosted web
+      application. The basic concept is: upload files and get a url back that can then
+      be shared.
+    url: https://eikek.github.io/sharry/
+  unraid:
+    #support_url: https://forums.unraid.net/topic/XXXXX-support-sharry/
+    category: "Cloud: Network:Other"
+  documentation:
+    sections:
+      - title: Built-in Administrator Account
+        level: 2
+        content: |-
+          By default, {{ app.friendly_name }} comes with a built-in administrator account,
+          with credentials defined by the following environment variables:
+
+          | Variable                             | Description | Default Value |
+          |--------------------------------------|-------------|---------------|
+          | `SHARRY_BACKEND_AUTH_FIXED_USER`     | Username    | `admin`       |
+          | `SHARRY_BACKEND_AUTH_FIXED_PASSWORD` | Password    | `changeme`    |
+
+          This account can be used to login to the web interface of {{ app.friendly_name }}.
+
+          > [!CAUTION]
+          > For security reason, it is strongly recommended to set a strong password. Do
+          > not use the default one!
+
+          If not needed, this account can be disabled by setting any of these two
+          variables to an empty value.
+      - title: Customizing {{ app.friendly_name }} Configuration
+        level: 2
+        content: |-
+          {{ app.friendly_name }} configuration can be customized via two methods:
+            1. Environment variables.
+            2. Configuration file.
+
+          All configuration parameters supported by {{ app.friendly_name }} can be consulted
+          at https://eikek.github.io/sharry/doc/configure
+      - title: Configuration File
+        level: 3
+        content: |-
+          The configuration file of {{ app.friendly_name }} is located at
+          `/config/sharry.conf` inside the container. It can be adjusted directly as
+          needed.
+      - title: Environment Variables
+        level: 3
+        content: |-
+          Container environment variables can be used to override values from the config
+          file. Variable names always start with `SHARRY_` and the remainder can be
+          derived from the corresponding config option by replacing period `.` and dash
+          `-` characters by an underscore `_`, but excluding the root namespace
+          `sharry.restserver`. For example, the config option
+          `sharry.restserver.bind.port` would be `SHARRY_BIND_PORT` as environment
+          variable. A value given as environment variable has priority.
+      - title: Exposing {{ app.friendly_name }} to the Internet
+        level: 2
+        content: |-
+          {{ app.friendly_name }} cannot be exposed directly to the Internet. Features
+          required to allow this is out of scope for {{ app.friendly_name }}. Instead, it
+          should run behind a reverse proxy. A reverse proxy can offer a secure access via
+          HTTPs to the web interface, while also providing a valid certificate that can be
+          verified by browsers.
+
+          See https://eikek.github.io/sharry/doc/reverseproxy for more details.
+  changelog:
+    - version: 24.08.1
+      date: 2024-08-26
+      changes:
+        - 'Initial release.'
+
+container:
+  unsupported_volume: /storage
+
+  # Environment variables.
+  environment_variables:
+    - name: SHARRY_BACKEND_AUTH_FIXED_USER
+      description: >-
+        Username of the built-in administrator account. Setting this variable to an empty
+        value disables this account.
+      type: public
+      default: admin
+      unraid_template:
+        title: Admin Account Username
+        display: always
+        required: false
+        mask: false
+    - name: SHARRY_BACKEND_AUTH_FIXED_PASSWORD
+      description: >-
+        Password of the built-in administrator account. Setting this variable to an empty
+        value disables this account.
+      type: public
+      default: changeme
+      unraid_template:
+        title: Admin Account Password
+        display: always
+        required: false
+        mask: false
+
+  # Volumes
+  volumes: []
+
+  # Network ports
+  ports:
+    - number: 9090
+      protocol: tcp
+      description: >-
+        Port used to access the web interface of the application.
+      mandatory: true
+      include_in_quick_start: true
+      unraid_template:
+        title: Web UI Port
+        description: >-
+          Port used to access the web interface of the application.
+        default: "{{ 7800 + app.id|int }}"
+        display: always
+        required: true
+        mask: false
+
+  # Devices
+  devices: []

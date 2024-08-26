@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Disable the admin account that uses fixed credentials if username or password
+# is not set.
+#
+
+set -e # Exit immediately if a command exits with a non-zero status.
+set -u # Treat unset variables as an error.
+
+if [ -z "${SHARRY_BACKEND_AUTH_FIXED_USER:-}" ] || [ -z "${SHARRY_BACKEND_AUTH_FIXED_PASSWORD:-}" ]
+then
+    echo "false"
+else
+    echo "true"
+fi
+
+# vim:ft=sh:ts=4:sw=4:et:sts=4
