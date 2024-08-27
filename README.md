@@ -382,6 +382,12 @@ derived from the corresponding config option by replacing period `.` and dash
 `sharry.restserver.bind.port` would be `SHARRY_BIND_PORT` as environment
 variable. A value given as environment variable has priority.
 
+> [!TIP]
+> A default `SHARRY_` environment variable (as defined under the
+> [Environment Variables](#environment-variables) section) can be ignored by
+> setting its value to `UNSET`. This forces the use of the config option value
+> from the configuration file,
+
 ## Exposing Sharry to the Internet
 
 Sharry cannot be exposed directly to the Internet. Features
