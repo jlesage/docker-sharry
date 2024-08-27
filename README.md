@@ -102,6 +102,7 @@ of this parameter has the format `<VARIABLE_NAME>=<VALUE>`.
 |`INSTALL_PACKAGES`| Space-separated list of packages to install during the startup of the container.  List of available packages can be found at https://mirrors.alpinelinux.org.  **ATTENTION**: Container functionality can be affected when installing a package that overrides existing container files (e.g. binaries). | (no value) |
 |`PACKAGES_MIRROR`| Mirror of the repository to use when installing packages. List of mirrors is available at https://mirrors.alpinelinux.org. | (no value) |
 |`CONTAINER_DEBUG`| Set to `1` to enable debug logging. | `0` |
+|`SHARRY_BASE_URL`| The external URL where Sharry can be reached (e.g. `https://sharry.example.com`). This is used to create absolute URLs and to configure the authentication cookie. These URLs are sent to the client, so they must resolve back to the Sharry server. If "network error" error messages are seen in the browser, then this setting is probably not correct. If the default value is used, the external URL is obtained dynamically by inspecting HTTP headers of the request. | `http://localhost:9090` |
 |`SHARRY_BACKEND_AUTH_FIXED_USER`| Username of the built-in administrator account. Setting this variable to an empty value disables this account. | `admin` |
 |`SHARRY_BACKEND_AUTH_FIXED_PASSWORD`| Password of the built-in administrator account. Setting this variable to an empty value disables this account. | `changeme` |
 

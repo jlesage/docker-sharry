@@ -50,6 +50,7 @@ RUN \
 
 # Set public environment variables.
 ENV \
+    SHARRY_BASE_URL=http://localhost:9090 \
     SHARRY_BACKEND_AUTH_FIXED_USER=admin \
     SHARRY_BACKEND_AUTH_FIXED_PASSWORD=changeme
 

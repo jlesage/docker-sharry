@@ -96,6 +96,29 @@ container:
 
   # Environment variables.
   environment_variables:
+    - name: SHARRY_BASE_URL
+      description: >-
+        The external URL where {{ app.friendly_name }} can be reached (e.g.
+        `https://sharry.example.com`). This is used to create absolute URLs and to
+        configure the authentication cookie. These URLs are sent to the client, so they
+        must resolve back to the {{ app.friendly_name }} server. If "network error" error
+        messages are seen in the browser, then this setting is probably not correct. If
+        the default value is used, the external URL is obtained dynamically by inspecting
+        HTTP headers of the request.
+      type: public
+      default: http://localhost:9090
+      unraid_template:
+        title: External URL
+        description: >-
+          The external URL where {{ app.friendly_name }} can be reached (e.g.
+          "https://sharry.example.com"). This is used to create absolute URLs and to
+          configure the authentication cookie. These URLs are sent to the client, so they
+          must resolve back to the {{ app.friendly_name }} server. If the default value is
+          used, the external URL is obtained dynamically by inspecting HTTP headers of the
+          request.
+        display: always
+        required: false
+        mask: false
     - name: SHARRY_BACKEND_AUTH_FIXED_USER
       description: >-
         Username of the built-in administrator account. Setting this variable to an empty
