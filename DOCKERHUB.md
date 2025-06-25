@@ -24,8 +24,8 @@ be shared.
 ## Quick Start
 
 **NOTE**:
-    The Docker command provided in this quick start is given as an example
-    and parameters should be adjusted to your need.
+    The Docker command provided in this quick start is an example, and parameters
+    should be adjusted to suit your needs.
 
 Launch the Sharry docker container with the following command:
 ```shell
@@ -38,9 +38,9 @@ docker run -d \
 
 Where:
 
-  - `/docker/appdata/sharry`: This is where the application stores its configuration, states, log and any files needing persistency.
+  - `/docker/appdata/sharry`: Stores the application's configuration, state, logs, and any files requiring persistency.
 
-Browse to `http://your-host-ip:9090` to access the Sharry web interface.
+Access the Sharry GUI by browsing to `http://your-host-ip:9090`.
 
 ## Documentation
 
@@ -48,9 +48,7 @@ Full documentation is available at https://github.com/jlesage/docker-sharry.
 
 ## Support or Contact
 
-Having troubles with the container or have questions?  Please
-[create a new issue].
+Having troubles with the container or have questions? Please
+[create a new issue](https://github.com/jlesage/docker-sharry/issues).
 
-For other great Dockerized applications, see https://jlesage.github.io/docker-apps.
-
-[create a new issue]: https://github.com/jlesage/docker-sharry/issues
+For other Dockerized applications, visit https://jlesage.github.io/docker-apps.
