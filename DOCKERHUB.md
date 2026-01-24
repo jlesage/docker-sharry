@@ -9,7 +9,8 @@
 
 This is a Docker container for [Sharry](https://eikek.github.io/sharry/).
 
-> This Docker container is entirely unofficial and not made by the creators of Sharry.
+> This Docker container is entirely unofficial and not made by the creators of
+> Sharry.
 
 ---
 
