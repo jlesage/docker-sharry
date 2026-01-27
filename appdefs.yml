@@ -136,7 +136,7 @@ container:
         title: External URL
         description: >-
           The external URL where {{ app.friendly_name }} can be reached (e.g.
-          "https://sharry.example.com"). This is used to create absolute URLs and to
+          `https://sharry.example.com`). This is used to create absolute URLs and to
           configure the authentication cookie. These URLs are sent to the client, so they
           must resolve back to the {{ app.friendly_name }} server. If the default value is
           used, the external URL is obtained dynamically by inspecting HTTP headers of the
@@ -180,8 +180,6 @@ container:
       include_in_quick_start: true
       unraid_template:
         title: Web UI Port
-        description: >-
-          Port used to access the web interface of the application.
         default: "{{ 7800 + app.id|int }}"
         display: always
         required: true
