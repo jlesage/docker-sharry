@@ -6,7 +6,8 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/jlesage/docker-sharry/build-image.yml?logo=github&branch=master&style=for-the-badge)](https://github.com/jlesage/docker-sharry/actions/workflows/build-image.yml)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge)](https://paypal.me/JocelynLeSage)
 
-This project provides a Docker container for [Sharry](https://eikek.github.io/sharry/).
+This project provides a lightweight and secure Docker container for
+[Sharry](https://eikek.github.io/sharry/).
 
 > [!NOTE]
 > This Docker container is entirely unofficial and not made by the creators of
@@ -37,8 +38,8 @@ be shared.
       * [Synology](#synology)
       * [unRAID](#unraid)
    * [User/Group IDs](#usergroup-ids)
-   * [Accessing the GUI](#accessing-the-gui)
    * [Shell Access](#shell-access)
+   * [Accessing the GUI](#accessing-the-gui)
    * [Built-in Administrator Account](#built-in-administrator-account)
    * [Customizing Sharry Configuration](#customizing-sharry-configuration)
       * [Configuration File](#configuration-file)
@@ -202,7 +203,6 @@ Adjust the configuration to suit your needs. Only mandatory settings are
 included in this example.
 
 ```yaml
-version: '3'
 services:
   sharry:
     image: jlesage/sharry
@@ -319,15 +319,6 @@ uid=1000(myuser) gid=1000(myuser) groups=1000(myuser),4(adm),24(cdrom),27(sudo),
 
 Use the `uid` (user ID) and `gid` (group ID) values to configure the container.
 
-## Accessing the GUI
-
-Assuming that container's ports are mapped to the same host's ports, the
-interface of the application can be accessed with a web browser at:
-
-```text
-http://<HOST IP ADDR>:9090
-```
-
 ## Shell Access
 
 To access the shell of a running container, execute the following command:
@@ -338,6 +329,15 @@ docker exec -ti CONTAINER sh
 
 Where `CONTAINER` is the ID or the name of the container used during its
 creation.
+
+## Accessing the GUI
+
+Assuming that container's ports are mapped to the same host's ports, the
+interface of the application can be accessed with a web browser at:
+
+```text
+http://<HOST IP ADDR>:9090
+```
 
 ## Built-in Administrator Account
 

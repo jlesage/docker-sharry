@@ -7,7 +7,8 @@
 [![Source](https://img.shields.io/badge/Source-GitHub-blue?logo=github&style=for-the-badge)](https://github.com/jlesage/docker-sharry)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge)](https://paypal.me/JocelynLeSage)
 
-This is a Docker container for [Sharry](https://eikek.github.io/sharry/).
+This project provides a lightweight and secure Docker container for
+[Sharry](https://eikek.github.io/sharry/).
 
 > This Docker container is entirely unofficial and not made by the creators of
 > Sharry.
