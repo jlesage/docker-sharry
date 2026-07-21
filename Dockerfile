@@ -8,7 +8,7 @@
 ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
-ARG SHARRY_VERSION=1.15.0
+ARG SHARRY_VERSION=1.16.0
 
 # Define software download URLs.
 ARG SHARRY_URL=https://github.com/eikek/sharry/releases/download/v${SHARRY_VERSION}/sharry-restserver-${SHARRY_VERSION}.zip
