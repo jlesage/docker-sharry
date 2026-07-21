@@ -25,6 +25,7 @@ RUN \
 # Pull base image.
 FROM jlesage/baseimage:alpine-3.20-v3.11.8
 
+ARG SHARRY_VERSION
 ARG DOCKER_IMAGE_VERSION
 
 # Define working directory.
@@ -45,6 +46,7 @@ COPY --from=sharry /opt/sharry /opt/sharry
 # Set internal environment variables.
 RUN \
     set-cont-env APP_NAME "Sharry" && \
+    set-cont-env APP_VERSION "$SHARRY_VERSION" && \
     set-cont-env DOCKER_IMAGE_VERSION "$DOCKER_IMAGE_VERSION" && \
     true
 
