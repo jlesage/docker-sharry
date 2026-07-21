@@ -13,14 +13,19 @@ ARG SHARRY_VERSION=1.16.0
 # Define software download URLs.
 ARG SHARRY_URL=https://github.com/eikek/sharry/releases/download/v${SHARRY_VERSION}/sharry-restserver-${SHARRY_VERSION}.zip
 
-# Download JDownloader2
+# Download Sharry.
 FROM --platform=$BUILDPLATFORM alpine:3.20 AS sharry
 ARG SHARRY_URL
+COPY src/sharry/fix-h2-offset-limit.py /tmp/fix-h2-offset-limit.py
 RUN \
     apk --no-cache add curl && \
     curl -# -L -o /tmp/sharry.zip ${SHARRY_URL} && \
     unzip -d /opt/ /tmp/sharry.zip && \
-    mv /opt/sharry-restserver-* /opt/sharry
+    mv /opt/sharry-restserver-* /opt/sharry && \
+    # Apply binary patch for H2/MariaDB OFFSET/LIMIT bug (https://github.com/eikek/sharry/issues/1643).
+    # Fixed upstream in PR #1776.
+    apk --no-cache add curl python3 && \
+    python3 /tmp/fix-h2-offset-limit.py /opt/sharry/lib/com.github.eikek.sharry-backend-*.jar
 
 # Pull base image.
 FROM jlesage/baseimage:alpine-3.20-v3.11.8
