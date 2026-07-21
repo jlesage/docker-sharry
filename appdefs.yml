@@ -86,6 +86,12 @@ app:
 
           See https://eikek.github.io/sharry/doc/reverseproxy for more details.
   changelog:
+    - version: 26.07.1
+      date: 2026-07-21
+      changes:
+        - 'Updated Sharry to version 1.16.0.'
+        - 'Applied an upstream fix for an issue where the list of shares failed to load.'
+        - 'Updated baseimage to version 3.11.8.'
     - version: 25.12.1
       date: 2025-12-17
       changes:
