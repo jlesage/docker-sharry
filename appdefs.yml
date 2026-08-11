@@ -86,6 +86,10 @@ app:
 
           See https://eikek.github.io/sharry/doc/reverseproxy for more details.
   changelog:
+    - version: 26.08.1
+      date: 2026-08-11
+      changes:
+        - 'Updated baseimage to version 3.11.10.'
     - version: 26.07.1
       date: 2026-07-21
       changes:
