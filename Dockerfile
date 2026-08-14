@@ -28,7 +28,7 @@ RUN \
     python3 /tmp/fix-h2-offset-limit.py /opt/sharry/lib/com.github.eikek.sharry-backend-*.jar
 
 # Pull base image.
-FROM jlesage/baseimage:alpine-3.20-v3.11.10
+FROM jlesage/baseimage:alpine-3.20-v3.11.11
 
 ARG SHARRY_VERSION
 ARG DOCKER_IMAGE_VERSION
