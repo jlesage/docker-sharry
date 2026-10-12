@@ -57,8 +57,8 @@ ENV \
     SHARRY_BACKEND_AUTH_FIXED_PASSWORD=changeme
 
 # Expose ports.
-#   - 9191: Sharry web interface.
-EXPOSE 9191
+#   - 9090: Sharry web interface.
+EXPOSE 9090
 
 # Metadata.
 LABEL \
