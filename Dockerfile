@@ -23,7 +23,7 @@ RUN \
     mv /opt/sharry-restserver-* /opt/sharry
 
 # Pull base image.
-FROM jlesage/baseimage:alpine-3.20-v3.11.12
+FROM jlesage/baseimage:alpine-3.20-v3.11.13
 
 ARG SHARRY_VERSION
 ARG DOCKER_IMAGE_VERSION
